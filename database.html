@@ -1,1 +1,181 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DATABASE | BRAWL PICKER</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ada-black: #000000;
+            --ada-white: #ffffff;
+            --ada-bg-gray: #fcfcfc; /* ADAの製品背景に近い超薄いグレー */
+            --ada-line: #eeeeee;
+        }
 
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: var(--ada-white);
+            color: var(--ada-black);
+        }
+
+        /* ADA風：固定ヘッダー */
+        header {
+            padding: 40px 60px;
+            border-bottom: 1px solid var(--ada-line);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            background: rgba(255,255,255,0.9);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-weight: 100;
+            letter-spacing: 0.6em;
+            font-size: 1.2rem;
+            text-decoration: none;
+            color: var(--ada-black);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #999;
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            margin-left: 30px;
+            transition: 0.3s;
+        }
+
+        nav a:hover { color: var(--ada-black); }
+
+        /* メインコンテンツ */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
+        .category-title {
+            font-weight: 100;
+            letter-spacing: 0.5em;
+            font-size: 1.8rem;
+            margin-bottom: 80px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        /* ADA風グリッドレイアウト */
+        .brawler-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 80px 40px; /* 余白を贅沢に取る */
+        }
+
+        .brawler-item {
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.4s;
+        }
+
+        .brawler-item:hover { opacity: 0.6; }
+
+        /* 画像エリア：ADAの製品写真のように */
+        .image-wrapper {
+            background-color: var(--ada-bg-gray);
+            aspect-ratio: 1 / 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            overflow: hidden;
+        }
+
+        .image-wrapper img {
+            width: 75%;
+            height: auto;
+            /* ADAっぽく少しコントラストを抑える */
+            filter: grayscale(10%) brightness(1.02);
+        }
+
+        /* テキストエリア：極細フォント */
+        .brawler-info {
+            padding: 0 10px;
+        }
+
+        .brawler-name {
+            font-weight: 300;
+            font-size: 0.9rem;
+            letter-spacing: 0.25em;
+            margin: 0 0 8px 0;
+            text-transform: uppercase;
+        }
+
+        .brawler-rarity {
+            font-weight: 100;
+            font-size: 0.65rem;
+            color: #888;
+            letter-spacing: 0.15em;
+            margin: 0;
+        }
+
+        /* フィルターエリア（オプション） */
+        .filter-bar {
+            margin-bottom: 50px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo">BRAWL PICKER</a>
+    <nav>
+        <a href="tool.html">CALCULATOR</a>
+        <a href="database.html" style="color: #000;">DATABASE</a>
+        <a href="index.html#journal">JOURNAL</a>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="filter-bar">
+        <span>ALL</span> / <span>TANK</span> / <span>ASSASSIN</span> / <span>SNIPER</span>
+    </div>
+
+    <h2 class="category-title">Brawler Collection</h2>
+
+    <div class="brawler-grid" id="brawler-list">
+        <a href="character-detail.html?id=shelly" class="brawler-item">
+            <div class="image-wrapper">
+                <img src="https://media.brawltime.ninja/brawlers/shelly/model.png" alt="Shelly">
+            </div>
+            <div class="brawler-info">
+                <p class="brawler-name">Shelly</p>
+                <p class="brawler-rarity">Starting Brawler</p>
+            </div>
+        </a>
+
+        <a href="character-detail.html?id=spike" class="brawler-item">
+            <div class="image-wrapper">
+                <img src="https://media.brawltime.ninja/brawlers/spike/model.png" alt="Spike">
+            </div>
+            <div class="brawler-info">
+                <p class="brawler-name">Spike</p>
+                <p class="brawler-rarity">Legendary</p>
+            </div>
+        </a>
+
+        </div>
+</div>
+
+</body>
+</html>
